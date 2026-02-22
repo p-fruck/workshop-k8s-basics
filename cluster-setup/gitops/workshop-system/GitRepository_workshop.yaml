@@ -1,0 +1,9 @@
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: workshop
+spec:
+  interval: 1m
+  ref:
+    branch: main
+  url: https://github.com/p-fruck/workshop-k8s-basics

@@ -1,0 +1,5 @@
+namespace: workshop-system
+resources:
+  - Namespace.yaml
+  - GitRepository_workshop.yaml
+  - Kustomization_workshop.yaml
