@@ -23,3 +23,22 @@ kubectl apply -k ./gitops/workshop-system/
 ```
 
 This should ensure all components inside `./gitops` are applied automatically
+
+## Cert Manager
+
+To configure certmanager:
+
+```bash
+helm repo add jetstack https://charts.jetstack.io --force-update
+helm install cert-manager jetstack/cert-manager --namespace cert-manager --set installCRDs=true --create-namespace
+```
+
+Add cloudflare secret
+
+```bash
+kubectl create secret generic cloudflare-api-token-secret \
+  --from-literal=api-token=<YOUR_CLOUDFLARE_TOKEN> \
+  --namespace cert-manager
+```
+
+Then change the details in `ClusterIssuer_letsencrypt-dns.yaml` and apply it using `kubectl apply`
