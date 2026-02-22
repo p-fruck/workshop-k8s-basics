@@ -1,0 +1,12 @@
+namespace: ingress-system
+resources:
+  - Namespace.yaml
+  - HelmRelease_traefik.yaml
+  - HelmRepository_traefik.yaml
+
+configMapGenerator:
+  - name: traefik-config
+    files:
+      - values.yaml  # This will create the ConfigMap using the content of config.yaml
+    options:
+      disableNameSuffixHash: true
