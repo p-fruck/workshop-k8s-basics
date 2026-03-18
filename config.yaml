@@ -1,0 +1,11 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mfontanini/presenterm/master/config-file-schema.json
+# presenterm cli config
+mermaid:
+  scale: 7
+export:
+  dimensions:
+    rows: 36
+    columns: 147
+options:
+  auto_render_languages:
+    - mermaid

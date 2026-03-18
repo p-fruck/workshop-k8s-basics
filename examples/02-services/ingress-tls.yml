@@ -1,0 +1,15 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: example-ingress
+  annotations:
+    # the name of your issuer!
+    cert-manager.io/cluster-issuer: >-
+      letsencrypt-dns
+spec:
+  tls:
+    - hosts:
+        # again: change this
+        - {{ingress.cluster.local}}
+      secretName: nginx-tls

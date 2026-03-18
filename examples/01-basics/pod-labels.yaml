@@ -1,0 +1,16 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod
+  labels:
+    app.kubernetes.io/name: nginx-pod
+    app.kubernetes.io/instance: nginx-pod-abcxyz
+    app.kubernetes.io/version: "1.29.6"
+    app.kubernetes.io/component: webserver
+    app.kubernetes.io/part-of: myapp
+    app.kubernetes.io/managed-by: Helm
+spec:
+  containers:
+    - name: nginx
+      image: nginx:alpine
