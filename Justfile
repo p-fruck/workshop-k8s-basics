@@ -8,7 +8,7 @@
 [group('build')]
 @export-all *args:
     rm -rf _site && mkdir _site
-    echo '# Software Engineering II' > _site/index.md
+    echo '# Kubernetes Workshop' > _site/index.md
     echo -e '\nYou can view or download the latest slides here:\n' >> _site/index.md
     for file in slides/*.md; do \
         echo $file; \
