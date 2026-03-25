@@ -1,0 +1,22 @@
+resources:
+  - ../../base
+
+# Transformers
+namePrefix: prod-
+
+commonLabels:
+  env: prod
+
+images:
+  - name: nginx
+    newTag: 1.29-alpine
+
+# Patches
+patches:
+  - target:
+      kind: Deployment
+      name: my-nginx
+    patch: |
+      - op: replace
+        path: /spec/replicas
+        value: 2
