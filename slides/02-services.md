@@ -137,8 +137,8 @@ With an issuer configured, we can add the following config to the ingress:
 
 ```bash +no_background
 # apply (patch) partially valid file
-kubectl apply --server-side \
-  -f examples/ingress-tls.yaml
+kubectl patch ingress example-ingress \
+  --patch-file examples/ingress-tls.yaml
 ```
 <!-- column: 1 -->
 ```file +no_background +line_numbers
