@@ -8,7 +8,7 @@ kubeAPI: # same as `--api-port myhost.my.domain:6445` (where the name would reso
   host: "${CLUSTER_DOMAIN}" # important for the `server` setting in the kubeconfig
   hostIP: "127.0.0.1" # where the Kubernetes API will be listening on
   hostPort: "6445" # where the Kubernetes API listening port will be mapped to on your host system
-image: rancher/k3s:v1.35.1-k3s1 # same as `--image rancher/k3s:v1.20.4-k3s1`
+image: rancher/k3s:v1.36.2-k3s1 # same as `--image rancher/k3s:v1.20.4-k3s1`
 ports:
   - port: 80:80 # same as `--port '80:80@loadbalancer'`
     nodeFilters:
@@ -37,6 +37,18 @@ options:
       - arg: "--disable=traefik"
         nodeFilters:
           - server:*
+      # - arg: "--kube-apiserver-arg=oidc-issuer-url=https://keycloak.example.com/realms/master"
+      #   nodeFilters:
+      #     - server:*
+      # - arg: "--kube-apiserver-arg=oidc-client-id=k8s"
+      #   nodeFilters:
+      #     - server:*
+      # - arg: "--kube-apiserver-arg=oidc-username-claim=preferred_username"
+      #   nodeFilters:
+      #     - server:*
+      # - arg: "--kube-apiserver-arg=oidc-groups-claim=groups"
+      #   nodeFilters:
+      #     - server:*
     nodeLabels:
       - label: foo=bar # same as `--k3s-node-label 'foo=bar@agent:1'` -> this results in a Kubernetes node label
         nodeFilters:
